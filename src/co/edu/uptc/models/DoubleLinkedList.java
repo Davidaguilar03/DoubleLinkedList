@@ -2,6 +2,7 @@ package co.edu.uptc.models;
 
 import java.util.*;
 
+
 public class DoubleLinkedList<E> implements List<E> {
     private Node<E> head;
     private Node<E> tail;
@@ -38,36 +39,7 @@ public class DoubleLinkedList<E> implements List<E> {
         return true;
     }
 
-    @Override
-    public void add(int index, E element) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index out of bounds");
-        }
-
-        Node<E> newNode = new Node<>(element);
-
-        if (index == 0) {
-            if (head == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                newNode.next = head;
-                head.prev = newNode;
-                head = newNode;
-            }
-        } else if (index == size) {
-            tail.next = newNode;
-            newNode.prev = tail;
-            tail = newNode;
-        } else {
-            Node<E> current = getNode(index);
-            newNode.prev = current.prev;
-            newNode.next = current;
-            current.prev.next = newNode;
-            current.prev = newNode;
-        }
-        size++;
-    }
+   
 
     @Override
     public E remove(int index) {
@@ -117,7 +89,6 @@ public class DoubleLinkedList<E> implements List<E> {
         return current;
     }
 
-    // Métodos no implementados
     @Override
     public boolean contains(Object o) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -201,5 +172,11 @@ public class DoubleLinkedList<E> implements List<E> {
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void add(int index, E element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 }

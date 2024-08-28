@@ -2,8 +2,8 @@ package co.edu.uptc.models;
 
 public class Node<T> {
     protected T data;
-    protected Node prev;
-    protected Node next;
+    protected Node<T> prev;
+    protected Node<T> next;
 
     public Node(T data) {
         this.data = data;
