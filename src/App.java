@@ -1,26 +1,17 @@
-import java.util.ArrayList;
-import java.util.List;
-
 import co.edu.uptc.models.DoubleLinkedList;
+import co.edu.uptc.models.MySort;
+import co.edu.uptc.models.Person;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        int sum = 0;
-        List<Integer> numbersList = new ArrayList<>(); 
-        DoubleLinkedList<Integer> doubleLinkedList = new DoubleLinkedList<Integer>();
-        for (int i = 0; i < 100; i++) {
-            doubleLinkedList.add(i);
-            numbersList.add(i);
+        DoubleLinkedList<Person> personList = new DoubleLinkedList<Person>();
+        personList.add(new Person("David", "Aguilar", 45));
+        personList.add(new Person("Santiago", "Sierra",22));
+        personList.add(new Person("Oscar", "Guitierrez", 30));
+        MySort.sortByAge(personList);
+        for (Person person : personList) {
+            System.out.println(person);
         }
-        long tiempoInicio = System.currentTimeMillis();
-        for (int i = 0; i < doubleLinkedList.size()-1; i++) {
-            sum = ((int)doubleLinkedList.get(i) + (int)doubleLinkedList.get(i+1));
-        }
-        // for (int i = 0; i < numbersList.size()-1; i++) {
-        //     sum = numbersList.get(i) + numbersList.get(i+1);
-        // }
-        long tiempoFin = System.currentTimeMillis();
-        long tiempoEjecucion = tiempoFin - tiempoInicio;
-        System.out.println("El tiempo de ejecución es: " + tiempoEjecucion + " milisegundos.");
+        
     }
 }
