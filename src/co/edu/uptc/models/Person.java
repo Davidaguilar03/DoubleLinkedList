@@ -1,6 +1,6 @@
 package co.edu.uptc.models;
 
-public class Person implements Comparable<Person> {
+public class Person{
     private String name;
     private String lastName;
     private int age;
@@ -33,19 +33,6 @@ public class Person implements Comparable<Person> {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    @Override
-    public int compareTo(Person person) {
-        return Integer.compare(this.age, person.age);
-    }
-
-    public int compareByName(Person person) {
-        return this.name.compareTo(person.name);
-    }
-
-    public int compareByLastName(Person person) {
-        return this.lastName.compareTo(person.lastName);
     }
 
     @Override
